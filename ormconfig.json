@@ -1,12 +1,12 @@
 {
-  "username": "postgres",
+  "username": "gameUser",
   "password": "docker",
 
   "type": "postgres",
   "name": "default",
   "host": "localhost",
   "port": 5432,
-  "database": "queries_challenge",
+  "database": "games",
   "entities": ["./src/modules/**/entities/*.ts"],
   "migrations": ["./src/database/migrations/*.ts"],
   "cli": {

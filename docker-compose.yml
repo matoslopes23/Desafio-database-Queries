@@ -1,0 +1,31 @@
+version: "3.7"
+
+services:
+  database:
+    image: postgres
+    container_name: database_games 
+    restart: always
+    ports: 
+      - 5432:5432
+    environment: 
+      - POSTGRES_USER=gameUser
+      - POSTGRES_PASSWORD=docker 
+      - POSTGRES_DB=games
+    volumes: 
+      - pgdata:/data/postgres
+  app:
+    build: .
+    container_name: games
+    ports: 
+      - 3333:3333
+    volumes: 
+      - .:/usr/apps
+    links:
+      - database
+    depends_on: 
+      - database
+  
+volumes: 
+  pgdata:
+    driver: local
+
